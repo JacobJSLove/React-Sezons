@@ -1,21 +1,31 @@
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-configure({ adapter: new Adapter() });
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+Enzyme.configure({ adapter: new Adapter() });
+
 import App from './App';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
-it('renders without crashing app', () => {
-    shallow(<App />);
+it('App renders without crashing', () => {
+    mount(<App />);
 });
 
-it('includes SeasonDisplay and show good data', () => {
-    const wrapper = shallow(<SeasonDisplay lat = '-20' lng = '19' />);
-    expect(wrapper.find('.sezon')).to.have.lengthOf(1);
+describe('SeasonDisplay Component', () => {
+            it('negative lat', () => {
+                const wrapper = mount(<SeasonDisplay lat = '-20' lng = '19' />);
+                expect(wrapper.containsMatchingElement(<h1 className="sezon">Burr it&#39;s chilly</h1>)).toEqual(true);
+            });
+            it('postivie lat', () => {
+                        const wrapper = mount(<SeasonDisplay lat = '20' lng = '19' />);
+                        expect(wrapper.containsMatchingElement(<h1 className="sezon">Its hot!< /h1>)).toEqual(true);
+	});
 });
 
-it('includes SeasonDisplay', () => {
-    // const app = shallow(<App />);
-    // expect(app.containsMatchingElement(<SeasonDisplay />)).toEqual(true)
+/*console.log(wrapper.debug());*/
+
+it('includes Spinner with working props', () => {
+    const wrapper = mount(<Spinner message="Proszę czekać..."/>);
+    expect(wrapper.prop('message')).toEqual('Proszę czekać...');
 });

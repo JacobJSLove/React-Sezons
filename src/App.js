@@ -14,7 +14,7 @@ const App = () => {
     if (errMsg) {
         content = <div>Error: {errMsg}</div>
     } else if (lat) {
-        content = <SeasonDisplay lat = '-20' lng = '19' />
+        content = <SeasonDisplay lat = {lat} lng = {lng} />
     } else {
         content = <Spinner message="Proszę czekać..."/>
     }

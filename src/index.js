@@ -8,16 +8,16 @@ import useLocation from './useLocation';
 
 const App = () => {
 
-    const [lat, errMsg] = useLocation();
+    const [lat, lng, errMsg] = useLocation();
 
     let content;
 
     if (errMsg) {
         content = <div>Error: {errMsg}</div>
     } else if (lat) {
-        content = <SeasonDisplay lat={lat} />
+        content = <SeasonDisplay lat={lat} lng={lng} />
     } else {
-        content = <Spinner message="Please wait on location"/>
+        content = <Spinner message="Proszę czekać..."/>
     }
 
     return (

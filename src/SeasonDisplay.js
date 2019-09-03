@@ -30,7 +30,7 @@ const SeasonDisplay = props => {
     return (
         <div className={`season-display ${season}`}>
 	 	<i className={`icon-left massive ${iconName} icon`} />
-	 	<h1>{text}</h1>
+	 	<h1 className="sezon">{text}</h1>
 	 	<p>Twoja lokalizacja</p>
 	 	<h5>{props.lat}</h5>
 	 	<h5>{props.lng}</h5>

@@ -3,6 +3,6 @@
 <h5>run with npm start</h5>
 </br><p>To Do:</p>
 <ul>
-	<li>tests</li>
+	<li>advanced tests</li>
 </ul>
 

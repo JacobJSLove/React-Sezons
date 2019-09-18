@@ -2,8 +2,17 @@ import React from 'react';
 import SeasonDisplay from './SeasonDisplay';
 import Spinner from './Spinner';
 import useLocation from './useLocation';
+import Heading from './Heading';
 
-// Creat a component
+
+// Create a component
+
+const tempArr = [{
+    a: 'Joe',
+    b: 'cde',
+    email: 123,
+    wiek: 12
+}];
 
 const App = () => {
 
@@ -21,9 +30,12 @@ const App = () => {
 
     return (
         <div className="border red">
-			{content}
-		</div>
+        <Heading head="head" body="body" tempArr={tempArr}/>
+    </div>
     );
-}
+
+};
+
+
 
 export default App;
